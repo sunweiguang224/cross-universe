@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eecbe7cb-1817-4bf4-9ef7-c3a16d0fb3e3" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/1.png" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/2.png" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/3.png" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/4.png" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/4.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/5.png" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/5.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/6.png" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/6.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/favicon.ico" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/favicon.ico" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/favicon.jpg" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/favicon.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/name.png" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/name.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/img/universe.jpg" afterPath="$PROJECT_DIR$/cross-universe-dist1/img/universe.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/index.html" afterPath="$PROJECT_DIR$/cross-universe-dist1/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/three.js" afterPath="$PROJECT_DIR$/cross-universe-dist1/three.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist/three.min.js" afterPath="$PROJECT_DIR$/cross-universe-dist1/three.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/title-icon.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/1.png" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/2.png" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/3.png" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/4.png" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/4.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/5.png" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/5.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/6.png" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/6.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/favicon.ico" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/favicon.ico" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/favicon.jpg" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/favicon.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/name.png" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/name.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/img/universe.jpg" afterPath="$PROJECT_DIR$/cross-universe-dist2/img/universe.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/index.html" afterPath="$PROJECT_DIR$/cross-universe-dist2/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/three.js" afterPath="$PROJECT_DIR$/cross-universe-dist2/three.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/cross-universe-dist1/three.min.js" afterPath="$PROJECT_DIR$/cross-universe-dist2/three.min.js" />
     </list>
     <ignored path="cross-universe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,10 +37,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cross-universe-dist1/index.html">
+        <entry file="file://$PROJECT_DIR$/cross-universe-dist2/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49751243">
-              <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.590796">
+              <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -56,6 +57,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/cross-universe-dist/index.html" />
+        <option value="$PROJECT_DIR$/cross-universe-dist1/index.html" />
       </list>
     </option>
   </component>
@@ -125,7 +127,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cross-universe-dist1" />
+              <option name="myItemId" value="cross-universe-dist2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cross-universe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cross-universe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cross-universe-dist2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -143,6 +163,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\cross-universe\cross-universe-dist1\img" />
       <recent name="D:\code\cross-universe\cross-universe-dist\img" />
       <recent name="D:\code\cross-universe\cross-universe-dist" />
       <recent name="D:\code\cross-universe" />
@@ -252,7 +273,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cross-universe-dist1/three.min.js">
+    <entry file="file://$PROJECT_DIR$/cross-universe-dist2/three.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -268,10 +289,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cross-universe-dist1/index.html">
+    <entry file="file://$PROJECT_DIR$/cross-universe-dist2/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49751243">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.590796">
+          <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="53" />
           <folding>
             <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
