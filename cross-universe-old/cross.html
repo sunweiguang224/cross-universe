@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Title</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<!-- 如果当前环境是IE则设置为IE最高版本 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+	<!-- 设置视口大小与屏幕相同 -->
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!-- 禁止缓存 -->
+	<meta http-equiv="pragma" content="no-cache"/>
+	<meta http-equiv="cache-control" content="no-store, must-revalidate"/>
+	<meta http-equiv="expires" content="0"/>
+	<!-- 禁止识别电话号，邮件，地点(跳转至地图) -->
+	<meta name="format-detection" content="telephone=no, email=no, adress=no" searchtype="map">
+	<!-- 删除默认的苹果工具栏和菜单栏 -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<!-- 控制状态栏显示样式 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+<script src="./three.js"></script>
+<!--<script type="text/javascript" src="fonts/helvetiker_regular.typeface.json"></script>-->
+<script>
+	// 生成随机小数
+	var randomFloat = function (min, max) {
+		return Math.random() * (max - min) + min;
+	};
+	// 距离中心10以上
+	var randomPos = function (min, max, border) {
+		for (var num = randomFloat(min, max); num > border || num < -border; num = randomFloat(min, max)) {
+			return num;
+		}
+	};
+
+	// 变量
+	var rendererWidth = document.documentElement.clientWidth < 640 ? document.documentElement.clientWidth : 640,
+					rendererHeight = document.documentElement.clientHeight,
+					cameraMaxZ = 1000,
+					cameraStartZ = cameraMaxZ / 3,
+					geometryCountRound = 50,
+					geometryCountCenter = 20,
+					geometryCountWord = 1,
+					isFontLoaded = false		// 因load字体是异步的，变量用来判断load结束
+					;
+
+	// 场景
+	var scene = new THREE.Scene();
+	// 背景图片
+	var geometry = new THREE.BoxBufferGeometry(cameraMaxZ * 2, cameraMaxZ * 2, 1);
+	var texture = new THREE.TextureLoader().load('http://localhost:8000/three.js/z/img/universe.jpg');
+	var material = new THREE.MeshBasicMaterial({map: texture});
+	scene.add(new THREE.Mesh(geometry, material));
+
+	// 几何体
+	var geometry = new THREE.PlaneBufferGeometry(30, 30);
+	// 皮肤
+	var materialArr = [];
+	for (var i = 1; i <= 6; i++) {
+		var textureLoader = new THREE.TextureLoader().load('http://localhost:8000/three.js/z/img/' + i + '.png');
+		var material = new THREE.MeshBasicMaterial({map: textureLoader});
+		material.transparent = true;
+		materialArr.push(material);
+	}
+	// 远处物体
+	for (var i = 0; i < geometryCountRound; i++) {
+		var mesh = new THREE.Mesh(geometry, materialArr[Math.floor(randomFloat(0, materialArr.length - 1))]);
+		mesh.position.x = randomPos(-300, 300, 30);
+		mesh.position.y = randomPos(-300, 300, 30);
+		mesh.position.z = cameraStartZ - 200 + (cameraMaxZ - cameraStartZ) * i / geometryCountRound;
+		scene.add(mesh);
+	}
+	// 中心物体
+	for (var i = 0; i < geometryCountCenter - 1; i++) {
+		var mesh = new THREE.Mesh(geometry, materialArr[Math.floor(randomFloat(0, materialArr.length - 1))]);
+		mesh.position.x = randomPos(-15, 15, 1);
+		mesh.position.y = randomPos(-15, 15, 1);
+		mesh.position.z = (cameraStartZ - 50) + (cameraMaxZ - cameraStartZ) * i / geometryCountCenter;
+		scene.add(mesh);
+	}
+
+	// 文字
+	var wordMesh = null;
+	var fontLoader = new THREE.FontLoader();
+	fontLoader.load('./font/Microsoft YaHei_Bold.json', function (fontName) {
+		// 文字几何体
+		var geometry = new THREE.TextGeometry('中文名', {
+			size: 8, //字号大小，一般为大写字母的高度
+			height: 0.5, //文字的厚度
+			weight: 'normal', //值为'normal'或'bold'，表示是否加粗
+			font: fontName, //字体，默认是'helvetiker'，需对应引用的字体文件
+			style: 'normal', //值为'normal'或'italics'，表示是否斜体
+//			bevelThickness: 0.3, //倒角厚度
+//			bevelSize: 0.3, //倒角宽度
+//			curveSegments: 30,//弧线分段数，使得文字的曲线更加光滑
+//			bevelEnabled: true, //布尔值，是否使用倒角，意为在边缘处斜切
+		});
+		geometry.computeBoundingBox();
+		geometry.center();	// 设置旋转点为元素中心
+		geometry.computeVertexNormals();
+		// 文字皮肤
+		// var material = new THREE.MeshBasicMaterial({color: 0xff5c00});
+		// var material = new THREE.MeshBasicMaterial({color: 0xffffff, opacity: 0.5, transparent: true});
+		var material = new THREE.MeshPhongMaterial({color: 0xff5c00});
+		// 生成文字
+		for (var i = 0; i < geometryCountWord; i++) {
+			var mesh = new THREE.Mesh(geometry, material);
+//			mesh.position.x = -0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
+			mesh.position.x = 0;
+			mesh.position.y = 50;
+			mesh.position.z = cameraMaxZ - 100;
+			// mesh.rotation.y = 0.3;
+			scene.add(mesh);
+			wordMesh = mesh;
+		}
+		window.isFontLoaded = true;
+	});
+
+	// 光源
+	var pointLight = new THREE.PointLight(0xFFFFFF, 1.5);
+	pointLight.position.x = -50;
+	pointLight.position.y = -50;
+	pointLight.position.z = cameraMaxZ + 100;
+	scene.add(pointLight);
+
+	// 相机
+	var camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, cameraMaxZ);
+	camera.position.z = cameraStartZ;
+
+	// 渲染器
+	var renderer = new THREE.WebGLRenderer({
+		antialias: false,       //是否开启反锯齿
+		precision: "highp",    //着色精度选择
+		alpha: true,           //是否可以设置背景色透明
+		premultipliedAlpha: false,
+		stencil: false,
+		preserveDrawingBuffer: true, //是否保存绘图缓冲
+		maxLights: 1           //maxLights:最大灯光数
+	});
+	//	renderer.setSize(rendererWidth * 3, rendererWidth * 3);
+	//	renderer.domElement.style.width = rendererWidth + 'px';
+	//	renderer.domElement.style.height = rendererHeight + 'px';
+	renderer.setSize(rendererWidth, rendererHeight);
+	renderer.setClearColor(0x000000, 0.9);
+	document.body.appendChild(renderer.domElement);
+
+	// 文字旋转动效
+	var wordRotateRatio = 1;
+	function wordRotateAnimate() {
+		if (!wordMesh) return;
+		wordMesh.rotation.z = wordMesh.rotation.z + wordRotateRatio;
+		wordRotateRatio -= 0.005;
+		if (wordRotateRatio > 0) {
+			window.requestAnimationFrame(arguments.callee);
+		} else {
+			wordMesh.rotation.z = 0;
+		}
+		renderer.render(scene, camera);
+	}
+
+	// 开始动画
+	function start() {
+		camera.position.z += 1;
+		if (window.isFontLoaded) {
+			renderer.render(scene, camera);
+		}
+		if (camera.position.z + 1 < cameraMaxZ) {
+			window.requestAnimationFrame(arguments.callee);
+		} else {
+			wordRotateAnimate();
+		}
+	}
+
+	// 监控开始时间
+	var isFontLoadedInterval = setInterval(function () {
+		if (isFontLoaded) {
+			start();
+			clearInterval(isFontLoadedInterval);
+		}
+	}, 1000);
+</script>
+</body>
+</html>
